@@ -5,34 +5,34 @@ export default function ButtonContainer(props) {
 		<section className='buttons'>
 			<div className='homeButtons'>
 				<Button
-					name={'Home Touchdown'}
+					name={`${props.homeTeam} Touchdown!`}
 					click={() => {
-						props.setLionsScore(props.lionsScore + 7);
+						props.setHomeScore(props.homeScore + 7);
 					}}
 					buttonClass={'homeButtons__touchdown'}
 				/>
 				<Button
-					name={'Home Field Goal'}
+					name={`${props.homeTeam} Field Goal`}
 					buttonClass={'homeButtons__fieldGoal'}
 					click={() => {
-						props.setLionsScore(props.lionsScore + 3);
+						props.setHomeScore(props.homeScore + 3);
 					}}
 				/>
 			</div>
 			<div className='awayButtons'>
 				<Button
-					name={'Away Touchdown'}
+					name={`${props.awayTeam} Touchdown!`}
 					buttonClass={'awayButtons__touchdown'}
 					click={() => {
-						props.setTigersScore(props.tigersScore + 7);
+						props.setAwayScore(props.awayScore + 7);
 					}}
 				/>
 
 				<Button
-					name={'Away Field Goal'}
+					name={`${props.awayTeam} Field Goal`}
 					buttonClass={'awayButtons__fieldGoal'}
 					click={() => {
-						props.setTigersScore(props.tigersScore + 3);
+						props.setAwayScore(props.awayScore + 3);
 					}}
 				/>
 			</div>
@@ -61,10 +61,26 @@ export default function ButtonContainer(props) {
 			/>
 
 			<Button
-				name={'Next Quarter'}
+				name={'Start Timer'}
 				buttonClass={'awayButtons__fieldGoal'}
 				click={() => {
-					props.setQuarter(props.quarter < 4 ? props.quarter + 1 : 1);
+					props.start();
+				}}
+			/>
+
+			<Button
+				name={'Pause Timer'}
+				buttonClass={'awayButtons__fieldGoal'}
+				click={() => {
+					props.pause();
+				}}
+			/>
+
+			<Button
+				name={'Reset Timer'}
+				buttonClass={'awayButtons__fieldGoal'}
+				click={() => {
+					props.reset();
 				}}
 			/>
 		</section>

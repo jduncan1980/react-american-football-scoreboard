@@ -8,16 +8,16 @@ export default function Scoreboard(props) {
 		<section className='scoreboard'>
 			<div className='topRow'>
 				<ScorePanel
-					score={props.lionsScore}
-					team={'Lions'}
+					score={props.homeScore}
 					homeOrAway={['home', 'home__name', 'home__score']}
+					team={props.homeTeam}
 				/>
 				<Timer time={props.time} />
 
 				<ScorePanel
-					score={props.tigersScore}
-					team={'Tigers'}
+					score={props.awayScore}
 					homeOrAway={['away', 'away__name', 'away__score']}
+					team={props.awayTeam}
 				/>
 			</div>
 			<BottomRow
