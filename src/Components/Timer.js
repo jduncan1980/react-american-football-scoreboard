@@ -1,5 +1,5 @@
 import React from 'react';
-import '../App.css';
+import styles from './timer.module.css';
 
 export default function Timer(props) {
 	let minutes = Math.floor(props.time / 60);
@@ -7,7 +7,7 @@ export default function Timer(props) {
 
 	return (
 		<React.Fragment>
-			<div className='timer'>
+			<div className={styles.timer}>
 				{(minutes < 10 ? `0${minutes}` : minutes) +
 					':' +
 					(seconds < 10 ? `0${seconds}` : seconds)}{' '}

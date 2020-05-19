@@ -1,23 +1,24 @@
-import React, { useState } from 'react';
+import React from 'react';
 import ScorePanel from './ScorePanel';
 import BottomRow from './BottomRow';
 import Timer from './Timer';
+import styles from './scoreboard.module.css';
 
 export default function Scoreboard(props) {
 	return (
-		<section className='scoreboard'>
-			<div className='topRow'>
+		<section className={styles.scoreboard}>
+			<div className={styles.topRow}>
 				<ScorePanel
 					score={props.homeScore}
-					homeOrAway={['home', 'home__name', 'home__score']}
 					team={props.homeTeam}
+					style={{ backgroundColor: '#656565' }}
 				/>
 				<Timer time={props.time} />
 
 				<ScorePanel
 					score={props.awayScore}
-					homeOrAway={['away', 'away__name', 'away__score']}
 					team={props.awayTeam}
+					style={{ backgroundColor: '#af750a' }}
 				/>
 			</div>
 			<BottomRow

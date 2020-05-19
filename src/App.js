@@ -26,7 +26,7 @@ function App() {
 	const [ballOn, setBallOn] = useState(0);
 	const [quarter, setQuarter] = useState(1);
 
-	const { time, start, pause, reset, isRunning } = useTimer({
+	const { time, start, pause, reset } = useTimer({
 		interval: 1000,
 		initialTime: 900,
 		step: 1,
@@ -35,7 +35,7 @@ function App() {
 		onEnd: () => {
 			console.log('Done');
 			reset();
-			setQuarter(quarter < 4 ? quarter + 1 : (quarter = 0));
+			setQuarter(quarter < 4 ? quarter + 1 : 0);
 		},
 	});
 

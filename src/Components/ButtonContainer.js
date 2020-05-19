@@ -1,28 +1,28 @@
 import React from 'react';
 import Button from './Button';
+import styles from './buttoncontainer.module.css';
+
 export default function ButtonContainer(props) {
 	return (
-		<section className='buttons'>
-			<div className='homeButtons'>
+		<section className={styles.buttons}>
+			<div className={styles.homeButtons}>
 				<Button
 					name={`${props.homeTeam} Touchdown!`}
 					click={() => {
 						props.setHomeScore(props.homeScore + 7);
 					}}
-					buttonClass={'homeButtons__touchdown'}
 				/>
 				<Button
 					name={`${props.homeTeam} Field Goal`}
-					buttonClass={'homeButtons__fieldGoal'}
 					click={() => {
 						props.setHomeScore(props.homeScore + 3);
 					}}
 				/>
 			</div>
-			<div className='awayButtons'>
+
+			<div className={styles.awayButtons}>
 				<Button
 					name={`${props.awayTeam} Touchdown!`}
-					buttonClass={'awayButtons__touchdown'}
 					click={() => {
 						props.setAwayScore(props.awayScore + 7);
 					}}
@@ -30,59 +30,57 @@ export default function ButtonContainer(props) {
 
 				<Button
 					name={`${props.awayTeam} Field Goal`}
-					buttonClass={'awayButtons__fieldGoal'}
 					click={() => {
 						props.setAwayScore(props.awayScore + 3);
 					}}
 				/>
 			</div>
-			<Button
-				name={'Next Down'}
-				buttonClass={'awayButtons__fieldGoal'}
-				click={() => {
-					props.setDowns(props.downs < 4 ? props.downs + 1 : 0);
-				}}
-			/>
 
-			<Button
-				name={'Yards To Go'}
-				buttonClass={'awayButtons__fieldGoal'}
-				click={() => {
-					props.setToGo(props.toGo > 1 ? props.toGo - 1 : 10);
-				}}
-			/>
+			<div className={styles.boxButtons}>
+				<Button
+					name={'Next Down'}
+					click={() => {
+						props.setDowns(props.downs < 4 ? props.downs + 1 : 0);
+					}}
+				/>
 
-			<Button
-				name={'Ball On'}
-				buttonClass={'awayButtons__fieldGoal'}
-				click={() => {
-					props.setBallOn(props.ballOn < 100 ? props.ballOn + 1 : 0);
-				}}
-			/>
+				<Button
+					name={'Yards To Go'}
+					click={() => {
+						props.setToGo(props.toGo > 1 ? props.toGo - 1 : 10);
+					}}
+				/>
 
-			<Button
-				name={'Start Timer'}
-				buttonClass={'awayButtons__fieldGoal'}
-				click={() => {
-					props.start();
-				}}
-			/>
+				<Button
+					name={'Ball On'}
+					click={() => {
+						props.setBallOn(props.ballOn < 100 ? props.ballOn + 1 : 0);
+					}}
+				/>
+			</div>
 
-			<Button
-				name={'Pause Timer'}
-				buttonClass={'awayButtons__fieldGoal'}
-				click={() => {
-					props.pause();
-				}}
-			/>
+			<div className={styles.timerControlButtons}>
+				<Button
+					name={'Start Timer'}
+					click={() => {
+						props.start();
+					}}
+				/>
 
-			<Button
-				name={'Reset Timer'}
-				buttonClass={'awayButtons__fieldGoal'}
-				click={() => {
-					props.reset();
-				}}
-			/>
+				<Button
+					name={'Pause Timer'}
+					click={() => {
+						props.pause();
+					}}
+				/>
+
+				<Button
+					name={'Reset Timer'}
+					click={() => {
+						props.reset();
+					}}
+				/>
+			</div>
 		</section>
 	);
 }
