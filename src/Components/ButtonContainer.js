@@ -36,6 +36,37 @@ export default function ButtonContainer(props) {
 					}}
 				/>
 			</div>
+			<Button
+				name={'Next Down'}
+				buttonClass={'awayButtons__fieldGoal'}
+				click={() => {
+					props.setDowns(props.downs < 4 ? props.downs + 1 : 0);
+				}}
+			/>
+
+			<Button
+				name={'Yards To Go'}
+				buttonClass={'awayButtons__fieldGoal'}
+				click={() => {
+					props.setToGo(props.toGo > 1 ? props.toGo - 1 : 10);
+				}}
+			/>
+
+			<Button
+				name={'Ball On'}
+				buttonClass={'awayButtons__fieldGoal'}
+				click={() => {
+					props.setBallOn(props.ballOn < 100 ? props.ballOn + 1 : 0);
+				}}
+			/>
+
+			<Button
+				name={'Next Quarter'}
+				buttonClass={'awayButtons__fieldGoal'}
+				click={() => {
+					props.setQuarter(props.quarter < 4 ? props.quarter + 1 : 1);
+				}}
+			/>
 		</section>
 	);
 }

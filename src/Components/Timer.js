@@ -31,7 +31,6 @@ export default function Timer(props) {
 		setTime((time) => time - 1000);
 		setSeconds(Math.floor((time / 1000) % 60));
 		setMinutes(Math.floor((time / 1000 / 60) % 60));
-		console.log(`${minutes}:${seconds}`);
 
 		if (time === 0) {
 			clearInterval(interval);
@@ -40,10 +39,15 @@ export default function Timer(props) {
 
 	return (
 		<React.Fragment>
-			<div className='timer'>
+			<div
+				onClick={() => {
+					clearInterval(interval);
+				}}
+				className='timer'
+			>
 				{(minutes < 10 ? `0${minutes}` : minutes) +
 					':' +
-					(seconds < 10 ? `0${seconds}` : seconds)}
+					(seconds < 10 ? `0${seconds}` : seconds)}{' '}
 			</div>
 		</React.Fragment>
 	);

@@ -12,7 +12,7 @@ export default function Scoreboard(props) {
 					team={'Lions'}
 					homeOrAway={['home', 'home__name', 'home__score']}
 				/>
-				<Timer time={3600000} />
+				<Timer time={props.time} />
 
 				<ScorePanel
 					score={props.tigersScore}
@@ -20,7 +20,12 @@ export default function Scoreboard(props) {
 					homeOrAway={['away', 'away__name', 'away__score']}
 				/>
 			</div>
-			<BottomRow />
+			<BottomRow
+				downs={props.downs}
+				toGo={props.toGo}
+				ballOn={props.ballOn}
+				quarter={props.quarter}
+			/>
 		</section>
 	);
 }

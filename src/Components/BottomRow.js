@@ -2,31 +2,31 @@ import React from 'react';
 import BottomRowBox from './BottomRowBox';
 import '../App.css';
 
-const BottomRow = () => {
+const BottomRow = (props) => {
 	return (
 		<div className='bottomRow'>
 			<BottomRowBox
 				classNames={['down', 'down__title', 'down__value']}
 				title={'Down'}
-				value={3}
+				value={props.downs}
 			/>
 
 			<BottomRowBox
 				classNames={['toGo', 'toGo__title', 'toGo__value']}
 				title={'To Go'}
-				value={7}
+				value={props.toGo}
 			/>
 
 			<BottomRowBox
 				classNames={['ballOn', 'ballOn__title', 'ballOn__value']}
 				title={'Ball On'}
-				value={21}
+				value={props.ballOn}
 			/>
 
 			<BottomRowBox
 				classNames={['quarter', 'quarter__title', 'quarter__value']}
 				title={'Quarter'}
-				value={4}
+				value={props.quarter}
 			/>
 		</div>
 	);
