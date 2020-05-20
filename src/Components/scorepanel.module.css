@@ -6,20 +6,12 @@
 	place-items: center;
 	border: 3px solid white;
 	border-radius: 0.5rem;
-	width: 15rem;
-}
-
-.home {
-	background-color: #656565;
-}
-
-.away {
-	background-color: #af750a;
+	width: 15%;
 }
 
 .panelName {
 	text-transform: uppercase;
-	font-size: 3rem;
+	font-size: 2rem;
 	padding: 2rem;
 }
 

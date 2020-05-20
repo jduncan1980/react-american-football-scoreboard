@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useTimer } from 'timer-hook';
 import Scoreboard from './Components/Scoreboard';
 import ButtonContainer from './Components/ButtonContainer';
-import './App.css';
+import styles from './app.module.css';
 
 function App() {
 	const [home, setHome] = useState('Home');
@@ -40,7 +40,7 @@ function App() {
 	});
 
 	return (
-		<div className='container'>
+		<div className={styles.container}>
 			<Scoreboard
 				homeScore={homeScore}
 				awayScore={awayScore}

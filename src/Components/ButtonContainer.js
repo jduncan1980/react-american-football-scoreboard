@@ -5,7 +5,7 @@ import styles from './buttoncontainer.module.css';
 export default function ButtonContainer(props) {
 	return (
 		<section className={styles.buttons}>
-			<div className={styles.homeButtons}>
+			<div className={styles.scoreButtons}>
 				<Button
 					name={`${props.homeTeam} Touchdown!`}
 					click={() => {
@@ -18,9 +18,7 @@ export default function ButtonContainer(props) {
 						props.setHomeScore(props.homeScore + 3);
 					}}
 				/>
-			</div>
 
-			<div className={styles.awayButtons}>
 				<Button
 					name={`${props.awayTeam} Touchdown!`}
 					click={() => {
