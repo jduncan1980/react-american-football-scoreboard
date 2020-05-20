@@ -36,23 +36,41 @@ export default function ButtonContainer(props) {
 
 			<div className={styles.boxButtons}>
 				<Button
-					name={'Next Down'}
+					name={'Downs'}
 					click={() => {
-						props.setDowns(props.downs < 4 ? props.downs + 1 : 0);
+						let value;
+						do {
+							value = prompt('Enter Downs (1-4)');
+							value = parseInt(value);
+							console.log(typeof value);
+						} while (isNaN(value) || value < 1 || value > 4);
+						props.setDowns(value);
 					}}
 				/>
 
 				<Button
-					name={'Yards To Go'}
+					name={'To Go'}
 					click={() => {
-						props.setToGo(props.toGo > 1 ? props.toGo - 1 : 10);
+						let value;
+						do {
+							value = prompt('Enter Yards to Go (1-10)');
+							value = parseInt(value);
+							console.log(typeof value);
+						} while (isNaN(value) || value < 1 || value > 10);
+						props.setToGo(value);
 					}}
 				/>
 
 				<Button
 					name={'Ball On'}
 					click={() => {
-						props.setBallOn(props.ballOn < 100 ? props.ballOn + 1 : 0);
+						let value;
+						do {
+							value = prompt('Enter Yardline (0-100)');
+							value = parseInt(value);
+							console.log(typeof value);
+						} while (isNaN(value) || value < 0 || value > 100);
+						props.setBallOn(value);
 					}}
 				/>
 			</div>
