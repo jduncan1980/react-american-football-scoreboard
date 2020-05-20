@@ -5,7 +5,8 @@
 	justify-content: space-around;
 	place-items: center;
 	border: 3px solid white;
-	border-radius: 0.5rem;
+	border-radius: 0.2rem;
+	box-shadow: 2px 2px 1px 0px rgba(41, 31, 16, 1);
 	width: 15%;
 }
 

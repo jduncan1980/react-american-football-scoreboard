@@ -1,11 +1,13 @@
 .scoreboard {
 	width: 65%;
 	margin: 2rem auto;
-	background-color: #0b5402;
+	background-color: #12410c;
+	background-image: url('../noise.png');
 	color: white;
-	border-radius: 0.75rem;
+	border-radius: 0.4rem;
 	padding: 3rem;
-	border: 6px solid white;
+	border: 4px double white;
+	box-shadow: 12px 12px 10px 0px rgba(0, 0, 0, 0.59);
 }
 
 .topRow {

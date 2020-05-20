@@ -1,8 +1,8 @@
 .container {
 	background: linear-gradient(
 			180deg,
-			rgba(203, 112, 17, 0.7189250700280112) 0%,
-			rgba(25, 173, 34, 0.7021183473389356) 100%
+			rgba(203, 112, 17, 0.3) 0%,
+			rgba(25, 173, 34, 0.3) 100%
 		),
 		url('./background.jpg');
 	background-size: cover;
