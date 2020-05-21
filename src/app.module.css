@@ -6,7 +6,18 @@
 		),
 		url('./background.jpg');
 	background-size: cover;
-	background-color: black;
-	height: 100%;
-	padding: 8rem 2rem;
+	background-position: center;
+	background-repeat: no-repeat;
+	padding: 2rem 2rem;
+	margin: 13% 0;
+}
+
+@media only screen and (max-width: 700px) {
+	.container {
+	}
+}
+
+@media only screen and (max-width: 450px) {
+	.container {
+	}
 }

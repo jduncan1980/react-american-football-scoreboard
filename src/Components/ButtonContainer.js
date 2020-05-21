@@ -2,7 +2,7 @@ import React from 'react';
 import Button from './Button';
 import styles from './buttoncontainer.module.css';
 
-export default function ButtonContainer(props) {
+export function ScoreButtonContainer(props) {
 	return (
 		<section className={styles.buttons}>
 			<div className={styles.scoreButtons}>
@@ -33,7 +33,13 @@ export default function ButtonContainer(props) {
 					}}
 				/>
 			</div>
+		</section>
+	);
+}
 
+export function ControlButtonContainer(props) {
+	return (
+		<section className={styles.buttons}>
 			<div className={styles.boxButtons}>
 				<Button
 					name={'Downs'}
@@ -42,7 +48,6 @@ export default function ButtonContainer(props) {
 						do {
 							value = prompt('Enter Downs (1-4)');
 							value = parseInt(value);
-							console.log(typeof value);
 						} while (isNaN(value) || value < 1 || value > 4);
 						props.setDowns(value);
 					}}
@@ -55,7 +60,6 @@ export default function ButtonContainer(props) {
 						do {
 							value = prompt('Enter Yards to Go (1-10)');
 							value = parseInt(value);
-							console.log(typeof value);
 						} while (isNaN(value) || value < 1 || value > 10);
 						props.setToGo(value);
 					}}
@@ -68,7 +72,6 @@ export default function ButtonContainer(props) {
 						do {
 							value = prompt('Enter Yardline (0-100)');
 							value = parseInt(value);
-							console.log(typeof value);
 						} while (isNaN(value) || value < 0 || value > 100);
 						props.setBallOn(value);
 					}}

@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { useTimer } from 'timer-hook';
 import Scoreboard from './Components/Scoreboard';
-import ButtonContainer from './Components/ButtonContainer';
+import {
+	ScoreButtonContainer,
+	ControlButtonContainer,
+} from './Components/ButtonContainer';
 import styles from './app.module.css';
 
-function App() {
+export default function App() {
 	const [home, setHome] = useState('Home');
 	const [away, setAway] = useState('Away');
 
@@ -21,9 +24,9 @@ function App() {
 
 	const [homeScore, setHomeScore] = useState(0);
 	const [awayScore, setAwayScore] = useState(0);
-	const [downs, setDowns] = useState(0);
+	const [downs, setDowns] = useState(1);
 	const [toGo, setToGo] = useState(10);
-	const [ballOn, setBallOn] = useState(0);
+	const [ballOn, setBallOn] = useState(50);
 	const [quarter, setQuarter] = useState(1);
 
 	const { time, start, pause, reset } = useTimer({
@@ -41,25 +44,7 @@ function App() {
 
 	return (
 		<div className={styles.container}>
-			<Scoreboard
-				homeScore={homeScore}
-				awayScore={awayScore}
-				downs={downs}
-				toGo={toGo}
-				ballOn={ballOn}
-				quarter={quarter}
-				time={time}
-				homeTeam={home}
-				awayTeam={away}
-			/>
-
-			<ButtonContainer
-				homeScore={homeScore}
-				awayScore={awayScore}
-				setHomeScore={setHomeScore}
-				setAwayScore={setAwayScore}
-				homeTeam={home}
-				awayTeam={away}
+			<ControlButtonContainer
 				setDowns={setDowns}
 				setToGo={setToGo}
 				setBallOn={setBallOn}
@@ -72,8 +57,26 @@ function App() {
 				pause={pause}
 				reset={reset}
 			/>
+			<Scoreboard
+				homeScore={homeScore}
+				awayScore={awayScore}
+				downs={downs}
+				toGo={toGo}
+				ballOn={ballOn}
+				quarter={quarter}
+				time={time}
+				homeTeam={home}
+				awayTeam={away}
+			/>
+
+			<ScoreButtonContainer
+				homeScore={homeScore}
+				awayScore={awayScore}
+				setHomeScore={setHomeScore}
+				setAwayScore={setAwayScore}
+				homeTeam={home}
+				awayTeam={away}
+			/>
 		</div>
 	);
 }
-
-export default App;
