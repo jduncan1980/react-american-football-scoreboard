@@ -1,0 +1,28 @@
+.buttons {
+	width: 85%;
+	margin: 0 auto;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	align-items: stretch;
+}
+
+.scoreButtons,
+.boxButtons,
+.timerControlButtons {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: stretch;
+}
+
+@media only screen and (max-width: 450px) {
+	.buttons {
+		flex-direction: column;
+	}
+	.scoreButtons,
+	.boxButtons,
+	.timerControlButtons {
+		flex-direction: column;
+	}
+}

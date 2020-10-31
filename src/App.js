@@ -1,43 +1,82 @@
-//TODO: STEP 1 - Import the useState hook.
-import React from "react";
-import BottomRow from "./BottomRow";
-import "./App.css";
+import React, { useState, useEffect } from 'react';
+import { useTimer } from 'timer-hook';
+import Scoreboard from './Components/Scoreboard';
+import {
+	ScoreButtonContainer,
+	ControlButtonContainer,
+} from './Components/ButtonContainer';
+import styles from './app.module.css';
 
-function App() {
-  //TODO: STEP 2 - Establish your applictaion's state with some useState hooks.  You'll need one for the home score and another for the away score.
+export default function App() {
+	const [home, setHome] = useState('Home');
+	const [away, setAway] = useState('Away');
 
-  return (
-    <div className="container">
-      <section className="scoreboard">
-        <div className="topRow">
-          <div className="home">
-            <h2 className="home__name">Lions</h2>
+	useEffect(() => {
+		const homeName = prompt('Enter Home Team Name!');
+		if (homeName !== '') {
+			setHome(homeName);
+		}
+		const awayName = prompt('Enter Home Team Name!');
+		if (awayName !== '') {
+			setAway(awayName);
+		}
+	}, []);
 
-            {/* TODO STEP 3 - We need to change the hardcoded values in these divs to accept dynamic values from our state. */}
-            <div className="home__score">32</div>
-          </div>
-          <div className="timer">00:03</div>
-          <div className="away">
-            <h2 className="away__name">Tigers</h2>
-            <div className="away__score">32</div>
-          </div>
-        </div>
-        <BottomRow />
-      </section>
-      <section className="buttons">
-        <div className="homeButtons">
+	const [homeScore, setHomeScore] = useState(0);
+	const [awayScore, setAwayScore] = useState(0);
+	const [downs, setDowns] = useState(1);
+	const [toGo, setToGo] = useState(10);
+	const [ballOn, setBallOn] = useState(50);
+	const [quarter, setQuarter] = useState(1);
 
-          {/* TODO STEP 4 - Now we need to attach our state setter functions to click listeners. */}
-          <button className="homeButtons__touchdown">Home Touchdown</button>
-          <button className="homeButtons__fieldGoal">Home Field Goal</button>
-        </div>
-        <div className="awayButtons">
-          <button className="awayButtons__touchdown">Away Touchdown</button>
-          <button className="awayButtons__fieldGoal">Away Field Goal</button>
-        </div>
-      </section>
-    </div>
-  );
+	const { time, start, pause, reset } = useTimer({
+		interval: 1000,
+		initialTime: 900,
+		step: 1,
+		endTime: 0,
+		type: 'DECREMENT',
+		onEnd: () => {
+			console.log('Done');
+			reset();
+			setQuarter(quarter < 4 ? quarter + 1 : 0);
+		},
+	});
+
+	return (
+		<div className={styles.container}>
+			<ControlButtonContainer
+				setDowns={setDowns}
+				setToGo={setToGo}
+				setBallOn={setBallOn}
+				setQuarter={setQuarter}
+				downs={downs}
+				toGo={toGo}
+				ballOn={ballOn}
+				quarter={quarter}
+				start={start}
+				pause={pause}
+				reset={reset}
+			/>
+			<Scoreboard
+				homeScore={homeScore}
+				awayScore={awayScore}
+				downs={downs}
+				toGo={toGo}
+				ballOn={ballOn}
+				quarter={quarter}
+				time={time}
+				homeTeam={home}
+				awayTeam={away}
+			/>
+
+			<ScoreButtonContainer
+				homeScore={homeScore}
+				awayScore={awayScore}
+				setHomeScore={setHomeScore}
+				setAwayScore={setAwayScore}
+				homeTeam={home}
+				awayTeam={away}
+			/>
+		</div>
+	);
 }
-
-export default App;

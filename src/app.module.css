@@ -1,0 +1,23 @@
+.container {
+	background: linear-gradient(
+			180deg,
+			rgba(203, 112, 17, 0.3) 0%,
+			rgba(25, 173, 34, 0.3) 100%
+		),
+		url('./background.jpg');
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	padding: 2rem 2rem;
+	margin: 13% 0;
+}
+
+@media only screen and (max-width: 700px) {
+	.container {
+	}
+}
+
+@media only screen and (max-width: 450px) {
+	.container {
+	}
+}

@@ -1,0 +1,33 @@
+.title {
+	text-transform: uppercase;
+	font-size: 3rem;
+	padding: 2rem;
+	text-shadow: 2px 2px #14100a;
+}
+
+.box {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	place-items: center;
+}
+
+.value {
+	font-family: 'Ozone';
+	font-size: 5rem;
+	color: #ff2d2b;
+	width: 7rem;
+	text-align: center;
+	background-color: #0d0d0d;
+	box-shadow: inset 1px 1px 6px 3px rgba(199, 33, 33, 0.507);
+	margin-top: 1rem;
+	border-radius: 0.2rem;
+	padding: 1.6rem;
+	border: 1px solid white;
+}
+
+@media only screen and (max-width: 450px) {
+	.title {
+		font-size: 2.5rem;
+	}
+}
